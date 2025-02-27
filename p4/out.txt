@@ -1,0 +1,64 @@
+gcc tfidf.c testes.c -g -O0 -Wall -lm -o executavel
+./executavel
+Executar testes? (S/N): S
+Testando a funcao converter_minusculo():
+  PASS...String obtida: "ola mundo"
+         String esperada: "ola mundo"
+  PASS...String obtida: "ola  mundo "
+         String esperada: "ola  mundo "
+  PASS...String obtida: "man pulando  trings em lingu gem  c  "
+         String esperada: "man pulando  trings em lingu gem  c  "
+
+Testando a funcao tokenize():
+  PASS...String original: "olamundo"
+         Qtd de termos obtidos / esperados: 1 / 1
+         Termos obtidos: "olamundo"
+         Termos esperados: "olamundo"
+  PASS...String original: "ola mundo"
+         Qtd de termos obtidos / esperados: 2 / 2
+         Termos obtidos: "ola", "mundo"
+         Termos esperados: "ola", "mundo"
+  PASS...String original: "programacao em   linguagem  c"
+         Qtd de termos obtidos / esperados: 4 / 4
+         Termos obtidos: "programacao", "em", "linguagem", "c"
+         Termos esperados: "programacao", "em", "linguagem", "c"
+
+Testando a funcao carregar_termos():
+  PASS...Qtd de termos obtidos / esperados: 5 / 5
+         Termos unicos obtidos: "um", "dois", "tres", "quatro", "cinco"
+         Termos unicos esperados: "um", "dois", "tres", "quatro", "cinco"
+
+Testando a funcao tf():
+  PASS...Frequencia obtida do termo "seis": 0
+         Frequencia esperada: 0
+  PASS...Frequencia obtida do termo "sete": 1
+         Frequencia esperada: 1
+  PASS...Frequencia obtida do termo "dois": 3
+         Frequencia esperada: 3
+
+Testando a funcao idf():
+  PASS...Valor do idf obtido para o termo "um": 0.510826
+         Valor esperado do idf: 0.510826 +/-0.01
+  PASS...Valor do idf obtido para o termo "tres": 0.223144
+         Valor esperado do idf: 0.223144 +/-0.01
+  PASS...Valor do idf obtido para o termo "nove": 0.000000
+         Valor esperado do idf: 0.000000 +/-0.01
+
+Testando a funcao similaridade_cosseno():
+  PASS...Similaridade entre os vetores:
+         vet1 = (1.0, 2.0, -1.0)
+         vet2 = (2.0, -1.0, 0.0)
+         Valor obtido: 0.000000
+         Valor esperado: 0.000000 +/-0.01
+  PASS...Similaridade entre os vetores:
+         vet1 = (3.0, 0.0, 2.0, 1.0)
+         vet2 = (1.0, 2.0, 3.0, 1.0)
+         Valor obtido: 0.690066
+         Valor esperado: 0.690066 +/-0.01
+  PASS...Similaridade entre os vetores:
+         vet1 = (1.2, 2.3, 3.1, 4.4, 5.0, 6.8, 7.2, 8.5, 9.3, 6.1)
+         vet2 = (0.9, 5.4, 2.7, 3.6, 4.2, 5.5, 6.3, 7.1, 8.4, 9.0)
+         Valor obtido: 0.964486
+         Valor esperado: 0.964486 +/-0.01
+
+NOTA FINAL DA ATIVIDADE (0 a 10): 10.0
